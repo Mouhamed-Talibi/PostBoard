@@ -1,0 +1,63 @@
+<!-- Guests ( not logged in ) -->
+    - Register / Login 
+    - View Approved posts 
+    - Read full posts 
+
+<!-- Creators ( logged in ) -->
+    - Create posts ( Go to review queue )
+    - Edit / delete Their own posts ( until approved )
+    - Comment on approved posts 
+
+<!-- Admin -->
+    - View all posts ( approved / pending )
+    - Approve / Reject posts
+    - Edit / delete any post
+    - Manage users ( ban / unban )
+    - View comments on posts
+    - Manage comments ( delete inappropriate comments )
+    - Manage posts categories 
+
+<!-- Database deisgn -->
+    [ creators table ]
+    ----------------- 
+        id 
+        name 
+        email 
+        email_verified_at
+        password 
+        role 
+        status 
+        created_at 
+        updated_at 
+        deleted_at
+
+    [ Posts table ]
+    --------------- 
+        id 
+        creator_id 
+        title 
+        slug 
+        body 
+        image 
+        category_id 
+        status 
+        created_at 
+        updated_at 
+        deleted_at 
+
+    [ Comments table ]
+    ------------------ 
+        id 
+        creator_id 
+        post_id 
+        content 
+        created_at 
+        updated_at 
+        deleted_at 
+
+    [ categories table ] -> both admins and creators can add a category 
+        id 
+        name 
+        created_at 
+        updated_at 
+        deleted_at 
