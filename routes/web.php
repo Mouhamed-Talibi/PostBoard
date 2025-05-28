@@ -11,4 +11,5 @@
     Route::name('auth.')->group(function () {
         Route::get('login', [AuthController::class, 'showLoginForm'])->name('loginForm');
         Route::get('register', [AuthController::class, 'showRegistrationForm'])->name('registrationForm');
+        Route::post('register', [AuthController::class, 'register'])->name('register');
     });
