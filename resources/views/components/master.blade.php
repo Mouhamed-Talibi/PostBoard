@@ -28,7 +28,7 @@
     @include('partials.navbar')
 
     {{-- main content --}}
-    <main>
+    <main class="py-5 pb-5">
         {{ $slot }}
     </main>
     {{-- end main content --}}

@@ -1,55 +1,50 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg sticky-top shadow">
+<!-- Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <img src=" {{ asset("images/logo.png") }}" class="img-fluid" style="width: 60px; height: 60px;">
-        </a>  
-        <!-- Mobile toggle button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">PostBoard</a>
+
+        <!-- Toggler for mobile view -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Desktop menu (visible on lg screens and up) -->
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse justify-content-center justify-content-lg-end" id="navbarNav">
+            <ul class="navbar-nav">
+
+                {{-- Shared links --}}
                 <li class="nav-item">
-                    <a class="nav-link active fw-bold" aria-current="page" href="{{ route('home') }}">Home</a> 
+                    <a class="nav-link active" aria-current="page" href="{{ route('home')}}">Home</a>
                 </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="#hotels">Posts</a>  
+                <li class="nav-item">
+                    <a class="nav-link" href="#">All Posts</a>
                 </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="findRoom.html">Find Post</a>  
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Find Post</a>
                 </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link login rounded-pill px-3" href="login.html">Login</a>  
-                </li>
+
+                {{-- Logged in users - access all links --}}
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Create Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link logout" href="#">Logout</a>
+                    </li>
+                @endauth
+
+                {{-- guest links - Not logged in users --}}
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link login" href="#">Login</a>
+                    </li>
+                @endguest
             </ul>
         </div>
     </div>
 </nav>
-
-<!-- Offcanvas Menu (for mobile) -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-            <img src=" {{ asset("images/logo.png") }}" class="img-fluid mx-auto" style="width: 60px; height: 60px;">
-        </h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-                <a class="nav-link active mobile-nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link mobile-nav-link" href="#hotels">Posts</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link mobile-nav-link" href="findRoom.html">Find POst</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link mobile-nav-link" href="login.html">Login</a>
-            </li>
-        </ul>
-    </div>
-        </div>
