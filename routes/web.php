@@ -1,5 +1,6 @@
 <?php
 
+    use Illuminate\Foundation\Auth\EmailVerificationRequest;
     use App\Http\Controllers\AppController;
     use App\Http\Controllers\AuthController;
     use Illuminate\Support\Facades\Route;
@@ -13,3 +14,5 @@
         Route::get('register', [AuthController::class, 'showRegistrationForm'])->name('registrationForm');
         Route::post('register', [AuthController::class, 'register'])->name('register');
     });
+
+    

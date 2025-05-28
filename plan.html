@@ -61,3 +61,17 @@
         created_at 
         updated_at 
         deleted_at 
+
+
+    <!-- steps to email verifiation -->
+    - create a mail class : php artisan make:mail className
+    - in your views create an emails folder 
+    - use your mailer class 
+        $mailer = yourClass();
+        Mail::to('mouha22talibi@gmail.com')->send($mailer);
+    - use mailtrap
+    - go to mailtrap , search for laravel , then copy the mail config.
+    - clear config and cache
+
+    - send files in gmail: 
+        Attachement::fromstorage('path_to_file')->as('name')->withMine('image/png');

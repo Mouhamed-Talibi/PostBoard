@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
 
     use App\Http\Requests\RegistrationRequest;
+    use App\Models\Creator;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Hash;
 
@@ -25,13 +26,19 @@
 
             // hashing password
             $hashedPassword = Hash::make($registrationFields['password']);
+            $registrationFields['password'] = $hashedPassword;
 
-            // checking or image 
+            // checking image 
             if(isset($registrationFields['image'])) {
                 $imagePath = $request->file('image')->store('uploads/creators', 'public');
                 $registrationFields['image'] = $imagePath;
+            } 
+            else {
+                $registrationFields['image'] = "uploads/creators/default-image.jpg";
             }
-            $registrationFields['password'] = $hashedPassword;
-            dd($registrationFields);
+
+            // register 
+            $creator = Creator::create($registrationFields);
+            return to_route("verification.notice");
         }
     }
