@@ -15,7 +15,7 @@
 body {
     font-family: "Quicksand", sans-serif;
     background-color: var(--soft-dark);
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 0;
     margin: 0;
 }
@@ -156,5 +156,14 @@ body {
 }
 
 .footer-link:hover {
+    color: var(--soft-green);
+}
+
+/* home page style */
+.hero-text h1 span {
+    color: var(--soft-blue);
+}
+
+.posting h3 span {
     color: var(--soft-green);
 }

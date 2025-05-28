@@ -41,7 +41,7 @@
                 {{-- guest links - Not logged in users --}}
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link login" href="#">Login</a>
+                        <a class="nav-link login" href="{{ route('auth.loginForm') }}">Login</a>
                     </li>
                 @endguest
             </ul>
