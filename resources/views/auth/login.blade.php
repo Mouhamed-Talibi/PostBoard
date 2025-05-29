@@ -1,6 +1,13 @@
 <x-master title="Login">
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center gap-2 mt-5">
+            {{-- session messages --}}
+            @if (session('success'))
+                <div class="alert alert-success w-75 mx-auto text-center" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <form action="" method="POST" class="col-md-6 col-lg-7 border border-primary rounded-5 text-light py-5 px-4">
                 @csrf
 

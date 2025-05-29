@@ -1,7 +1,7 @@
 <x-master title="Register">
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center gap-2 mt-5">
-            <form action="{{ route('auth.register') }}" method="POST" class="col-md-6 col-lg-7 border border-primary rounded-5 text-light py-5 px-4" enctype="multipart/form-data">
+            <form action="{{ route('auth.register') }}" method="POST" enctype="multipart/form-data" class="col-md-6 col-lg-7 border border-primary rounded-5 text-light py-5 px-4">
                 @csrf
 
                 {{-- form title --}}
